@@ -7,6 +7,8 @@ describe 'editing a post' do
   end
 
   it 'can change the Title and Content' do
+    login
+
     visit '/posts'
     click_link 'Edit post'
 

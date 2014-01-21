@@ -15,6 +15,8 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
+  config.include Warden::Test::Helpers
+  Warden.test_mode!
   config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do
@@ -57,3 +59,9 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+def login
+  user = create(:user)
+  login_as user, scope: :user
+end
+

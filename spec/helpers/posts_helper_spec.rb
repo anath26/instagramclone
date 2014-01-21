@@ -13,3 +13,13 @@ require 'spec_helper'
 describe PostsHelper do
   pending "add some examples to (or delete) #{__FILE__}"
 end
+
+
+
+	# def login
+	# 	visit 'users/sign_up'
+	# 	fill_in "user[email]", with: "test@gmail.com"
+	# 	fill_in "user[password]", with: "12345678"
+	# 	fill_in "user[password_confirmation]", with: "12345678"
+	# 	click_button "Sign up"
+	# end

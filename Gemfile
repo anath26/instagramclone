@@ -24,6 +24,8 @@ gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branc
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem "paperclip", "~> 3.0"
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
@@ -37,6 +39,8 @@ gem 'sdoc',          group: :doc, require: false
 gem 'spring',        group: :development
 
 gem 'devise'
+
+
 
 group :development, :test do
   gem 'rspec-rails'

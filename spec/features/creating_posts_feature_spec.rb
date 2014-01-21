@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'creating a new post' do
 
   it 'is created from a form, providing Title and Content' do
-
+    login
     visit '/posts/new'
     fill_in 'Title', with: 'Hello world'
     fill_in 'Content', with: 'Hello from our Capybara test'
