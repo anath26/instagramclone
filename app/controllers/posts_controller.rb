@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:post].permit(:title, :content, :image))
+    @post = Post.new(params[:post].permit(:title, :content, :image, :tag_names))
 
     if @post.save
       redirect_to '/posts'
@@ -18,7 +18,12 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.for_tag_or_all params[:tag_id]
+    # if params[:tag_id]
+    #   @posts = Tag.find(params[:tag_id]).posts
+    # else
+    #   @posts = Post.all
+    # end
 
   end
 
@@ -26,7 +31,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.update(params[:post].permit(:title, :content, :image))
+    if @post.update(params[:post].permit(:title, :content, :image, :tag_names))
       redirect_to '/posts'
     else
       render 'edit'
